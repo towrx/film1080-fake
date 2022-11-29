@@ -20,9 +20,9 @@
 
 .item__audio {
   position: absolute;
-  top: 8px;
+  top: 6px;
   left: 6px;
-  padding: 1px 5px;
+  padding: 0.5px 5px;
   background-color: #c1c4c7;
   color: var(--blue);
   border-radius: 4px;

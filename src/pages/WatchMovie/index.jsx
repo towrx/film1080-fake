@@ -1,24 +1,25 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import { Tabs } from "antd";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBell, faHeart } from "@fortawesome/free-regular-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./WatchMovie.module.css";
 import { VideoJS } from "~/components/VideoJS";
-
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBell, faHeart } from "@fortawesome/free-regular-svg-icons";
 import MoviesRecommend from "~/components/MoviesRecommend";
 import { faClock, faComment } from "@fortawesome/free-regular-svg-icons";
 import * as apiRequest from "~/apiRequest";
-import { useDispatch, useSelector } from "react-redux";
 import MoviesItem from "~/components/MoviesItem";
 import Loading from "~/components/Loading";
+
 const cx = classNames.bind(styles);
 
 const WatchMovie = () => {
   const [episodes, setEpisodes] = useState(null);
-  const [currentEpisodeSrc, setcurrentEpisodeSrc] = useState(null);
+  const [currentEpisodeSrc, setCurrentEpisodeSrc] = useState(null);
 
   const { name_film } = useParams();
   const { episode } = useParams();
@@ -51,9 +52,9 @@ const WatchMovie = () => {
   // convert param episode to get episode src
   useEffect(() => {
     if (episode === "full" && episodes) {
-      setcurrentEpisodeSrc(episodes[0].link_m3u8);
+      setCurrentEpisodeSrc(episodes[0].link_m3u8);
     } else if (!isNaN(episode) && episodes && episode <= episodes.length) {
-      setcurrentEpisodeSrc(movieCurrent.data.episodes[0].server_data[episode - 1].link_m3u8);
+      setCurrentEpisodeSrc(movieCurrent.data.episodes[0].server_data[episode - 1].link_m3u8);
     }
   }, [episodes, episode]);
 
@@ -71,7 +72,7 @@ const WatchMovie = () => {
     fluid: true,
     sources: [
       {
-        src: (movieCurrent.data && currentEpisodeSrc) || "https://aa.nguonphimmoi.com/20220212/18_d9a1f51b/index.m3u8",
+        src: movieCurrent.data && currentEpisodeSrc,
         type: "application/x-mpegURL",
       },
     ],
@@ -83,9 +84,7 @@ const WatchMovie = () => {
         <Loading />
       ) : (
         <section className={cx("watch-movie")}>
-          <div className={cx("watch-movie__player")}>
-            <VideoJS options={videoJsOptions} />
-          </div>
+          <div className={cx("watch-movie__player")}>{currentEpisodeSrc && <VideoJS options={videoJsOptions} />}</div>
           <div className={cx("watch-movie__related")}>
             <ul className={cx("related__content")}>
               {moviesNominated.data &&
@@ -106,7 +105,7 @@ const WatchMovie = () => {
             <div className={cx("info-box__header")}>
               <h4 className={cx("info-header__title-vie")}>{movieCurrent.data && movieCurrent.data.movie.name}</h4>
               <div className={cx("wrap")}>
-                <span className={cx("info-header__views")}>Lượt xem: 195,346</span>
+                <span className={cx("info-header__views")}>Lượt xem: {(Math.random() * 20 + 1).toFixed(1)}k xem</span>
                 <div className={cx("info-header__action")}>
                   <div className={cx("info-header__like")}>
                     <FontAwesomeIcon icon={faHeart} />
