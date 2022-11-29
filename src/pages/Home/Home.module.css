@@ -59,6 +59,9 @@
   padding-bottom: 50px !important;
 }
 
+.ranking-item__link:hover {
+  opacity: .7;
+}
 .ranking-item {
   display: flex;
   justify-content: flex-end;
@@ -74,8 +77,13 @@
   left: 20%px;
   height: 100%;
   width: 65%;
+  transition: all .3s ease;
 }
 
+.ranking-item__link:hover .ranking-item__thumb {
+  transform: rotateZ(3deg);
+
+}
 .ranking-item__number {
   -webkit-text-fill-color: #000;
   -webkit-text-stroke-width: 3px;

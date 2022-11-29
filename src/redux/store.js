@@ -10,6 +10,8 @@ import moviesOddReducer from "./reducers/moviesOddSlice";
 import moviesRecommendReducer from "./reducers/moviesRecommendSlice";
 import moviesUpcomingReducer from "./reducers/moviesUpComingSlice";
 import movieCurrentReducer from "./reducers/movieCurrentSlice";
+import moviesCategoryReducer from "./reducers/moviesCategorySlice";
+import searchReducer from "./reducers/searchSlice";
 
 const store = configureStore({
   reducer: {
@@ -23,6 +25,8 @@ const store = configureStore({
     moviesRecommend: moviesRecommendReducer,
     moviesUpComing: moviesUpcomingReducer,
     movieCurrent: movieCurrentReducer,
+    moviesCategory: moviesCategoryReducer,
+    search: searchReducer,
   },
 });
 

@@ -7,11 +7,11 @@ import styles from "~/pages/Home/Home.module.css";
 
 const cx = classNames.bind(styles);
 
-const MoviesRecommend = ({ moviesRecommend }) => {
+const MoviesRecommend = ({ moviesRecommend, showTitleRight }) => {
   return (
     <section className={cx("movies-recommend", "grid")}>
       <div className={cx("movies-recommend__content", "movies__content")}>
-        <MoviesTitle type={0} title="HÔM NAY XEM GÌ" />
+        <MoviesTitle showTitleRight type={0} title="HÔM NAY XEM GÌ" />
         <div className={cx("row")}>
           {moviesRecommend.data &&
             moviesRecommend.data.items.slice(0, 5).map((movie, index) => {

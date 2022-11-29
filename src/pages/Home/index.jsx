@@ -197,12 +197,12 @@ const Home = () => {
               </div>
             </div>
           </section>
-          <section className={cx("movies-cinema")} style={{ marginTop: 40 }}>
+          <section className={cx("movies-cinema", "grid")} style={{ marginTop: 40 }}>
             <MoviesTitle showTitleRight type={1} title="PHIM CHIẾU RẠP" />
             <div className={cx("movies-cinema__icon")}>
               <FontAwesomeIcon icon={faClapperboard} />
             </div>
-            <div className={cx("movies-cinema__content", "movies__content", "grid")}>
+            <div className={cx("movies-cinema__content", "movies__content")}>
               <div className={cx("row", "no-gutters")}>
                 {moviesCinema.data &&
                   moviesCinema.data.items.slice(0, 10).map((movie, index) => {

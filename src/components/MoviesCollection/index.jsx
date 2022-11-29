@@ -17,7 +17,7 @@ const cx = classNames.bind(styles);
 const MoviesCollection = () => {
   return (
     <section className={cx("movies-collection", "grid")}>
-      <MoviesTitle type={1} title="PHIM CHIẾU RẠP" />
+      <MoviesTitle type={1} title="BỘ SƯU TẬP" />
 
       <div className={cx("movies-collection__content", "movies__content")}>
         <div className={cx("row")}>

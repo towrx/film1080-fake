@@ -10,14 +10,7 @@ const cx = classNames.bind(styles);
 
 const MoviesItem = ({ type, isItemHot, movie, pathImage }) => {
   const infoMovieFake = useRef({
-    audio: [
-      "VietSub",
-      "Thuyết minh",
-      "Lồng tiếng",
-      "VíetSub + Thuyết minh",
-      "Thuyết minh + Lồng tiếng",
-      "VietSub + Lồng tiếng",
-    ],
+    audio: ["VietSub", "Thuyết minh", "Lồng tiếng", "VíetSub + TM", "TM+ LT", "VietSub + LT"],
     quantity: ["FHD", "HD", "HDRip", "CAM", "Raw"],
     genres: ["Hài Hước", "Âm Nhạc", "Gia Đình", "Rùng rợn", "Huyền bí", "Lãng mạn", "Giật gân", "Kịch"],
   });

@@ -8,7 +8,7 @@ const cx = classNames.bind(styles);
 
 const RankingItem = ({ rank, movie, pathImage }) => {
   return (
-    <Link to={movie && "/watch/" + movie.slug}>
+    <Link to={movie && "/watch/" + movie.slug} className={cx("ranking-item__link")}>
       <div className={cx("ranking-item")}>
         <div className={cx("ranking-item__number")}>{rank}</div>
 

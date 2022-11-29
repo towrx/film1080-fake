@@ -228,7 +228,7 @@ const WatchMovie = () => {
                                 else
                                   return (
                                     <Link
-                                      to={"/" + name_film + "/" + epi.slug}
+                                      to={"/watch/" + name_film + "/" + epi.slug}
                                       key={index}
                                       className={cx("list-episode__link")}
                                     >
@@ -456,7 +456,7 @@ const WatchMovie = () => {
           <div className="clear"></div>
           <div className={cx("wrap_recom")}>
             <div style={{ margin: "0 -20px" }}>
-              <MoviesRecommend moviesRecommend={moviesRecommend} />
+              <MoviesRecommend showTitleRight moviesRecommend={moviesRecommend} />
             </div>
           </div>
         </section>

@@ -12,9 +12,10 @@
   overflow: hidden;
 }
 
+
 .item__link {
   position: relative;
-  z-index: 100;
+  z-index: 1;
 }
 
 
@@ -148,7 +149,7 @@
 }
 
 
-.item.type03:hover::after {
+.item.type03 .item__link:hover::after {
   position: absolute;
   content: "";
   left: 0;
@@ -159,7 +160,7 @@
   opacity: 0.6;
 }
 
-.item.type03:hover::before {
+.item.type03 .item__link:hover::before {
   content: "";
   position: absolute;
   width: 120px;

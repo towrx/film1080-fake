@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import classNames from "classnames/bind";
 
 import styles from "../Home/Home.module.css";
@@ -6,177 +6,114 @@ import styles2 from "./CategoryMovie.module.css";
 
 import MoviesTitle from "~/components/MoviesTitle";
 import MoviesItem from "~/components/MoviesItem";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 
-const cx = classNames.bind(styles);
-const cx2 = classNames.bind(styles2);
+import { useDispatch, useSelector } from "react-redux";
+import { getMoviesCategory } from "~/apiRequest";
+import Loading from "~/components/Loading";
+import paginationGenerator from "~/assets/js/paginationGenerator ";
+
+const copyStyle = classNames.bind(styles);
+const cx = classNames.bind(styles2);
 
 const WatchMovie = () => {
-  const location = useLocation();
+  const dispatch = useDispatch();
+  const { category } = useParams();
+  const moviesCategory = useSelector((state) => state.moviesCategory);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentPage = searchParams.get("page");
   const title = useRef({
-    "/phim-sap-chieu": "PHIM SẮP CHIẾU",
+    "phim-chieu-rap": "PHIM CHIẾU RẠP",
+    "phim-sap-chieu": "PHIM SẮP CHIẾU",
+    "phim-le": "PHIM LẺ",
+    "phim-bo": "PHIM BỘ",
   });
+
+  useEffect(() => {
+    if (!isNaN(currentPage)) getMoviesCategory(dispatch, currentPage);
+  }, [currentPage]);
+  console.log("re-render: ", currentPage);
   return (
     <>
-      <section className={cx("movies-upcoming", "grid")} style={{ marginTop: "20px" }}>
-        <div className={cx("movies-upcoming__content", "movies__content")}>
-          <MoviesTitle type={0} title={title.current[location.pathname]} isTitleRight={false} />
-          <div className={cx("row")}>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
+      {moviesCategory.isFetch ? (
+        <Loading />
+      ) : (
+        <>
+          <section className={copyStyle("movies-upcoming", "grid")} style={{ marginTop: 50 }}>
+            <div className={copyStyle("movies-upcoming__content", "movies__content")}>
+              <MoviesTitle type={0} title={title.current[category]} isTitleRight={false} />
+              <div className={copyStyle("row")}>
+                {moviesCategory.data &&
+                  moviesCategory.data.items.slice(0, 20).map((movie, index) => {
+                    return (
+                      <div key={index} className={copyStyle("col", "l-2-4", "m-3", "s-6")}>
+                        <MoviesItem
+                          type={3.2}
+                          movie={movie}
+                          isItemHot={false}
+                          pathImage={moviesCategory.data.pathImage}
+                        />
+                      </div>
+                    );
+                  })}
+              </div>
             </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-            <div className={cx("col", "l-2-4", "m-3", "s-6")}>
-              <MoviesItem type={3.2} />
-            </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      <ul className={cx2("pagination")}>
-        <div className={cx2("pagination__item")}>
-          <Link to="/">‹</Link>
-        </div>
+          <ul className={cx("pagination")}>
+            {/* {[1, 2, 3]} */}
+            {parseInt(currentPage) === 1 ? (
+              <div className={cx("pagination__item", "disable")}>
+                <span>‹</span>
+              </div>
+            ) : (
+              <div className={cx("pagination__item")}>
+                <span
+                  onClick={() => {
+                    setSearchParams({ page: parseInt(currentPage) - 1 });
+                  }}
+                >
+                  ‹
+                </span>
+              </div>
+            )}
+            {moviesCategory.data &&
+              paginationGenerator(parseInt(currentPage), parseInt(moviesCategory.data.pagination.totalPages), 3).map(
+                (element, index) => {
+                  let pagination = (
+                    <div key={index} className={cx("pagination__item")}>
+                      <Link to={"/the-loai/" + category + "?page=" + element}>{element}</Link>
+                    </div>
+                  );
 
-        <div className={cx2("pagination__item")}>
-          <Link to="/">1</Link>
-        </div>
+                  if (element === parseInt(currentPage) || element === "...")
+                    pagination = (
+                      <div key={index} className={cx("pagination__item", "disable")}>
+                        <span>{element}</span>
+                      </div>
+                    );
+                  return pagination;
+                },
+              )}
 
-        <div className={cx2("pagination__item")}>
-          <Link to="/">2</Link>
-        </div>
-
-        <div className={cx2("pagination__item")}>
-          <Link to="/">3</Link>
-        </div>
-
-        <div className={cx2("pagination__item")}>
-          <Link to="/">4</Link>
-        </div>
-
-        <div className={cx2("pagination__item", "active")}>
-          <Link to="/">5</Link>
-        </div>
-
-        <div className={cx2("pagination__item")}>
-          <Link to="/">6</Link>
-        </div>
-
-        <div className={cx2("pagination__item")}>
-          <Link to="/">7</Link>
-        </div>
-
-        <div className={cx2("pagination__item")}>
-          <Link to="/">8</Link>
-        </div>
-
-        <div className={cx2("pagination__item")}>
-          <Link to="/">9</Link>
-        </div>
-
-        <div className={cx2("pagination__item", "disable")}>
-          <span>...</span>
-        </div>
-
-        <div className={cx2("pagination__item")}>
-          <Link to="/">11</Link>
-        </div>
-
-        <div className={cx2("pagination__item")}>
-          <Link to="/">12</Link>
-        </div>
-
-        <div className={cx2("pagination__item")}>
-          <Link to="/">13</Link>
-        </div>
-
-        <div className={cx2("pagination__item")}>
-          <Link to="/">›</Link>
-        </div>
-      </ul>
+            {moviesCategory.data && parseInt(currentPage) === moviesCategory.data.pagination.totalPages ? (
+              <div className={cx("pagination__item", "disable")}>
+                <span>›</span>
+              </div>
+            ) : (
+              <div className={cx("pagination__item")}>
+                <span
+                  onClick={() => {
+                    setSearchParams({ page: parseInt(currentPage) + 1 });
+                  }}
+                >
+                  ›
+                </span>
+              </div>
+            )}
+          </ul>
+        </>
+      )}
     </>
   );
 };

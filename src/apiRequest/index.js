@@ -1,5 +1,10 @@
 import { getMovieCurrentError, getMovieCurrentStart, getMovieCurrentSuccess } from "~/redux/reducers/movieCurrentSlice";
 import { getMoviesAnimeError, getMoviesAnimeStart, getMoviesAnimeSuccess } from "~/redux/reducers/moviesAnimeSlice";
+import {
+  getMoviesCategoryError,
+  getMoviesCategoryStart,
+  getMoviesCategorySuccess,
+} from "~/redux/reducers/moviesCategorySlice";
 import { getMoviesChartError, getMoviesChartStart, getMoviesChartSuccess } from "~/redux/reducers/moviesChartSlice";
 import { getMoviesCinemaError, getMoviesCinemaStart, getMoviesCinemaSuccess } from "~/redux/reducers/moviesCinemaSlice";
 import {
@@ -20,6 +25,7 @@ import {
   getMoviesUpComingStart,
   getMoviesUpComingSuccess,
 } from "~/redux/reducers/moviesUpComingSlice";
+import { getSearchError, getSearchStart, getSearchSuccess } from "~/redux/reducers/searchSlice";
 
 export const getMoviesNominated = (dispatch) => {
   dispatch(getMoviesNominatedStart());
@@ -148,5 +154,31 @@ export const getMovieCurrent = (dispatch, slug) => {
     })
     .catch((error) => {
       dispatch(getMovieCurrentError(error));
+    });
+};
+
+export const getMoviesCategory = (dispatch, page) => {
+  dispatch(getMoviesCategoryStart());
+  const apiURL = "https://ophim1.com/danh-sach/phim-moi-cap-nhat?page=" + page;
+  fetch(apiURL)
+    .then((response) => response.json())
+    .then((payload) => {
+      dispatch(getMoviesCategorySuccess(payload));
+    })
+    .catch((error) => {
+      dispatch(getMoviesCategoryError(error));
+    });
+};
+
+export const getSearch = (dispatch, inputSearch) => {
+  dispatch(getSearchStart());
+  const apiURL = "https://ophim1.com/danh-sach/phim-moi-cap-nhat?page=1";
+  fetch(apiURL)
+    .then((response) => response.json())
+    .then((payload) => {
+      dispatch(getSearchSuccess(payload));
+    })
+    .catch((error) => {
+      dispatch(getSearchError(error));
     });
 };
