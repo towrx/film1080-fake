@@ -1,0 +1,429 @@
+.movies__content {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 20px;
+  padding-bottom: 40px;
+}
+
+.movies-nominated {
+  min-height: 200px;
+}
+
+/* .movies-cinema  */
+
+.movies-cinema,
+.movies-collection {
+  background-color: var(--black);
+  width: 100%;
+  margin-top: -8px;
+  position: relative;
+}
+
+
+
+.movies-cinema__icon {
+  width: 105px;
+  height: 105px;
+  position: absolute;
+  right: 25%;
+  top: -70px;
+  background-color: #ff4c00;
+  font-size: 4rem;
+  z-index: 1000;
+  text-align: center;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateZ(10deg);
+  box-shadow: 0 0 10px black;
+}
+
+.movies-cinema__content,
+.movies-collection__content {
+  max-width: 1040px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.movies-cinema__content {
+  padding: 0 20px;
+}
+
+.movies-series,
+.movies-nominated {
+  margin-top: 40px;
+}
+
+.movies-collection__content {
+  padding-bottom: 50px !important;
+}
+
+.ranking-item {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  height: 160px;
+  margin-bottom: 20px;
+}
+
+.ranking-item__thumb {
+  border-radius: 10px;
+  overflow: hidden;
+  position: absolute;
+  left: 20%px;
+  height: 100%;
+  width: 65%;
+}
+
+.ranking-item__number {
+  -webkit-text-fill-color: #000;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: #555;
+  font-size: 170px;
+  line-height: 160px;
+  font-weight: bolder;
+  position: absolute;
+  top: 0;
+  left: 0px;
+  font-weight: 800;
+}
+
+
+.movies-collection__item {
+  height: 85px;
+  margin-bottom: 8px;
+  background-color: green;
+}
+
+@media screen and (max-width: 768px) {
+  .movies__content {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .movies-cinema__icon {
+    display: none;
+  }
+
+  .movies-cinema__title {
+    background: #000;
+  }
+}
+
+/* responsive */
+
+.grid {
+  width: 100%;
+  display: block;
+  padding: 0;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -4px;
+  margin-right: -4px;
+}
+
+.row.no-gutters {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.col {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.row.no-gutters .col {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.s-0 {
+  display: none;
+}
+
+.s-1 {
+  flex: 0 0 8.33333%;
+  max-width: 8.33333%;
+}
+
+.s-2 {
+  flex: 0 0 16.66667%;
+  max-width: 16.66667%;
+}
+
+.s-2-4 {
+  flex: 0 0 20%;
+  max-width: 20%;
+}
+
+.s-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+.s-4 {
+  flex: 0 0 33.33333%;
+  max-width: 33.33333%;
+}
+
+.s-5 {
+  flex: 0 0 41.66667%;
+  max-width: 41.66667%;
+}
+
+.s-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.s-7 {
+  flex: 0 0 58.33333%;
+  max-width: 58.33333%;
+}
+
+.s-8 {
+  flex: 0 0 66.66667%;
+  max-width: 66.66667%;
+}
+
+.s-9 {
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+
+.s-10 {
+  flex: 0 0 83.33333%;
+  max-width: 83.33333%;
+}
+
+.s-11 {
+  flex: 0 0 91.66667%;
+  max-width: 91.66667%;
+}
+
+.s-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 769px) {
+  .row {
+    margin-left: -4px;
+    margin-right: -4px;
+  }
+
+  .col {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .m-0 {
+    display: none;
+  }
+
+  .m-1,
+  .m-10,
+  .m-11,
+  .m-12,
+  .m-2,
+  .m-2-4,
+  .m-4-8,
+  .m-3,
+  .m-4,
+  .m-5,
+  .m-6,
+  .m-7,
+  .m-7-2,
+  .m-8,
+  .m-9 {
+    display: block;
+  }
+
+  .m-1 {
+    flex: 0 0 8.33333%;
+    max-width: 8.33333%;
+  }
+
+  .m-2 {
+    flex: 0 0 16.66667%;
+    max-width: 16.66667%;
+  }
+
+  .m-2-4 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+
+  .m-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .m-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+  }
+
+  .m-5 {
+    flex: 0 0 41.66667%;
+    max-width: 41.66667%;
+  }
+
+  .m-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .m-7 {
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%;
+  }
+
+  .m-7-2 {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+
+  .m-4-8 {
+    flex: 0 0 40%;
+    max-width: 40%;
+  }
+
+  .m-8 {
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%;
+  }
+
+  .m-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+
+  .m-10 {
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%;
+  }
+
+  .m-11 {
+    flex: 0 0 91.66667%;
+    max-width: 91.66667%;
+  }
+
+  .m-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .row {
+    margin-left: -4px;
+    margin-right: -4px;
+  }
+
+  .col {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .l-0 {
+    display: none;
+  }
+
+  .l-1,
+  .l-10,
+  .l-11,
+  .l-12,
+  .l-2,
+  .l-2-4,
+  .l-3,
+  .l-4,
+  .l-4-8,
+  .l-5,
+  .l-6,
+  .l-7,
+  .l-7-2,
+  .l-8,
+  .l-9 {
+    display: block;
+  }
+
+  .l-1 {
+    flex: 0 0 8.33333%;
+    max-width: 8.33333%;
+  }
+
+  .l-2 {
+    flex: 0 0 16.66667%;
+    max-width: 16.66667%;
+  }
+
+  .l-2-4 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+
+  .l-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .l-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+  }
+
+  .l-5 {
+    flex: 0 0 41.66667%;
+    max-width: 41.66667%;
+  }
+
+  .l-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .l-7 {
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%;
+  }
+
+  .l-7-2 {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+
+  .l-4-8 {
+    flex: 0 0 40%;
+    max-width: 40%;
+  }
+
+  .l-8 {
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%;
+  }
+
+  .l-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+
+  .l-10 {
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%;
+  }
+
+  .l-11 {
+    flex: 0 0 91.66667%;
+    max-width: 91.66667%;
+  }
+
+  .l-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

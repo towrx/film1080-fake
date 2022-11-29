@@ -1,0 +1,194 @@
+@import "normalize.css";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import "./Global.css";
+
+
+:root {
+  --primary: #CE0000;
+  --white: #ffffff;
+  --black: #000000;
+  --background-color: #333333;
+  --text-color: #eee;
+  --text-color-nav: #C8C8C8;
+  --border-color: #4d4d4d;
+  --blue: #0285b5;
+  --color-quantity: #ff4c00;
+  /* animation */
+  --showSlowly: showSlowly;
+  --leftToRight: leftToRight;
+  --rightToLeft: rightToLeft;
+  --loading: loading;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+input,
+button {
+  outline: none;
+  border: none;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  text-rendering: optimizeSpeed;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.clear,
+.clr {
+  clear: both;
+}
+
+.line-280 {
+  border-bottom: 1px solid var(--border-color);
+  margin: 20px 0;
+}
+
+.hide {
+  display: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+input[data-autocompleted] {
+  background-color: transparent !important;
+}
+
+/* Animation */
+@keyframes showSlowly {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes leftToRight {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    right: 0px;
+  }
+}
+
+@keyframes rightToLeft {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    left: 0px;
+  }
+}
+
+@keyframes loading {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.replace-css .ant-tabs-tab-btn {
+  color: var(--text-color-nav);
+  font-size: 1.4rem;
+  font-family: "Open Sans", sans-serif;
+  padding-bottom: 5px;
+}
+
+.replace-css .ant-tabs-tab-btn :active,
+.replace-css .ant-tabs-tab-btn:focus {
+  color: var(--text-color-nav);
+}
+
+
+.replace-css .ant-tabs-tab.ant-tabs-tab-active>.ant-tabs-tab-btn {
+  color: var(--text-color-nav);
+  border-bottom: 2px solid #0285b5;
+}
+
+.replace-css .ant-tabs-nav-list {
+  height: 28px;
+  width: 100%;
+  border-bottom: 1px solid var(--border-color);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.replace-css .ant-tabs-tab {
+  /* flex-grow: 1; */
+
+}
+
+.replace-css .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
+  background-color: #0285b5;
+  display: none;
+}
+
+.replace-css .ant-tabs-content-holder {
+  color: var(--text-color-nav);
+  font-size: 1.4rem;
+  font-family: "Open Sans", sans-serif;
+
+}
+
+
+.vjs-big-play-centered .vjs-big-play-button {
+  margin: 0px;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.vjs-icon-play:before,
+.video-js .vjs-play-control .vjs-icon-placeholder:before {
+  color: var(--primary);
+}
+
+.video-js .vjs-big-play-button .vjs-icon-placeholder:before {
+  color: red;
+  font-size: 6.5rem;
+  top: 16.5%;
+  left: 1.5%;
+  position: relative;
+}
+
+/* 0285b5 */
+
+/* .vjs-icon-placeholder::before {
+  content: '';
+} */

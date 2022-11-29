@@ -1,0 +1,28 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.pagination__item :first-child {
+  padding: 6px 16px;
+  background-color: #0285B5;
+  color: var(--text-color);
+  margin: 0 5px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.pagination__item:hover:not(.disable),
+.pagination__item.active,
+.pagination__item.disable {
+  opacity: .6;
+}
+
+
+
+.pagination__item.disable {
+  cursor: not-allowed;
+}

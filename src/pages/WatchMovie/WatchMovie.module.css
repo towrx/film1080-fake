@@ -1,0 +1,303 @@
+.watch-movie {
+  max-width: 1030px;
+  width: 100%;
+  padding: 20px 20px 0 20px;
+  min-height: 100px;
+  margin: 0 auto;
+}
+
+.watch-movie__player {
+  width: 640px;
+  float: left;
+  margin-bottom: 20px;
+}
+
+
+
+.watch-movie__related {
+  float: right;
+}
+
+.related__content {
+  max-width: 340px;
+  width: 100%;
+}
+
+
+
+.watch-movie__info {
+  width: 640px;
+
+  min-height: 100px;
+  float: left;
+  padding: 0 10px 80px;
+  color: var(--text-color-nav);
+}
+
+
+.info-box__header {
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+
+
+}
+
+.info-header__title-vie {
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+
+.watch-movie__info .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+.info-header__views {
+  font-size: 1.4rem;
+}
+
+.info-header__action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #06A2C1;
+}
+
+
+.info-header__action svg {
+  margin-right: 2px;
+}
+
+.info-header__action:hover {
+  cursor: pointer;
+}
+
+
+.info-header__notification {
+  margin-left: 15px;
+}
+
+
+
+.info-header__btn-toff-advert {
+  margin-left: 15px;
+  background-color: #0A5C6F;
+  padding: 4px 6px;
+  border-radius: 4px;
+  color: #06A2C1;
+
+}
+
+.info-header__btn-toff-advert:hover {
+  cursor: pointer;
+}
+
+
+.watch-movie__info a {
+  color: #0285B5;
+}
+
+.info-box-genre {
+  margin-top: 5px;
+}
+
+
+.info-box__description {
+  margin: 15px 0 50px;
+}
+
+.info-box__tag {
+  line-height: 28px;
+}
+
+.info-box__tag>span {
+  background-color: #444444;
+  padding: 2px;
+  margin: 3px;
+
+}
+
+.info-box {
+  color: #06A2C1;
+}
+
+.list-episode {
+  margin-top: 20px;
+}
+
+.list-episode__link {}
+
+.list-episode__item {
+  padding: 6px 12px;
+  background-color: #0A5C6F;
+  display: inline-block;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  transition: all .3s ease;
+}
+
+.list-episode__item:hover,
+.list-episode__item.active {
+  color: var(--primary);
+  background-color: #273F45;
+
+}
+
+
+
+.comment-box {
+  margin-top: 20px;
+}
+
+.comment-box__header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.comment-box__avatar-user {
+  width: 38px;
+  height: 38px;
+  border-radius: 2px;
+  margin-right: 10px;
+
+}
+
+.comment-box__input {
+  flex-grow: 1;
+  border-radius: 2px;
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  padding: 10px 10px;
+  color: var(--text-color-nav);
+  font-size: 1.4rem;
+}
+
+.comment-box__item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+
+.comment-box__body {
+  flex-grow: 1;
+}
+
+.comment-box__name {
+  font-style: 1.4rem;
+  color: #0285b5;
+  display: block;
+  padding-right: 10px;
+}
+
+.comment-box-descript {
+  font-style: 1.4rem;
+  display: block;
+}
+
+.comment-box__reply {
+  font-size: 1.2rem;
+  display: inline-block;
+}
+
+.comment-box__reply :hover {
+  cursor: pointer;
+}
+
+.comment-box__btn {
+  background-color: var(--background-color);
+  color: var(--text-color-nav);
+  margin-left: 4px;
+}
+
+.comment-box__time {
+  font-size: 1.2rem;
+  display: inline-block;
+  margin-left: 18px;
+
+}
+
+
+
+
+.sub-comment-box {
+  margin-left: 48px;
+  flex-grow: 1;
+  margin-top: 10px;
+}
+
+.sub-comment-box .comment-box__item {
+  margin-bottom: 0;
+}
+
+.sub-comment-box .comment-box-descript,
+.sub-comment-box .comment-box__name {
+
+  display: inline-block;
+}
+
+.sub-comment-box .comment-box__avatar-user {
+  width: 30px;
+  height: 30px;
+}
+
+.sub-comment-box__input {
+  margin-top: 5px;
+  padding: 6px 10px;
+  background-color: var(--background-color);
+  width: 100%;
+  color: var(--text-color-nav);
+  border: 1px solid var(--border-color);
+  display: none;
+}
+
+.wrap_recom {
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 1050px) {
+  .watch-movie {
+    width: 800px;
+  }
+
+  .watch-movie__player {
+    width: 100%;
+  }
+
+  .watch-movie__info {
+    width: 420px;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .watch-movie__related {
+    display: none;
+  }
+
+  .watch-movie {
+    width: 100%;
+  }
+
+  .watch-movie__info {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .watch-movie {
+    padding: 20px 10px 0;
+  }
+
+  .wrap_recom {
+    padding: 0 10px;
+
+  }
+}

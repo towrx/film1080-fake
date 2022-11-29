@@ -1,0 +1,55 @@
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-color);
+  font-weight: normal;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.title__left {
+  font-size: 2rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  font-weight: lighter;
+}
+
+.title__right {
+  font-size: 1.4rem;
+  /* display: flex;
+  align-items: center; */
+}
+
+.title__content {
+  margin-left: 10px;
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.title__link {
+  color: var(--text-color);
+  margin-right: 8px;
+  letter-spacing: 2px;
+}
+
+.title__icon--left {
+  width: 30px;
+  height: 30px;
+  background: url(../../assets/images/source2.png) -270px -110px no-repeat;
+  position: relative;
+  top: -2px;
+}
+
+.special__title {
+  text-align: center;
+  font-weight: normal;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  word-spacing: 5px;
+  color: var(--primary);
+  padding: 22px 0;
+  /* display: block; */
+  background: #000 url(../../assets/images/bg-gradient.png) no-repeat right center;
+}
