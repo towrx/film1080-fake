@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock, faMessage, faUser } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "~/components/Header/Header.module.css";
+import { useDispatch } from "react-redux";
+import * as apiRequest from "~/apiRequest";
+import { toast } from "react-toastify";
 
 const cx = classNames.bind(styles);
 
 const Register = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [rePassword, setRePassword] = useState("");
+  const [nickname, setNickname] = useState("");
+  const [email, setEmail] = useState("");
+  const [gender, setGender] = useState("");
+  const dispatch = useDispatch();
+
+  // const [dateOfBirth, setDateOfBirth] = useState("");
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    if (password !== rePassword) toast.error("Mật khẩu nhập lai không đúng");
+    else {
+      const payload = { username, password, nickname, email, gender };
+      apiRequest.getRegister(dispatch, payload);
+    }
+  };
   return (
     <form action="" className={cx("form-register")}>
       <div className={cx("group")}>
@@ -15,7 +36,15 @@ const Register = () => {
           Tên đăng nhập
         </label>
         <div className={cx("input")}>
-          <input className={cx("input-data")} type="text" id="username" />
+          <input
+            className={cx("input-data")}
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+          />
           <FontAwesomeIcon className={cx("input-icon")} icon={faUser} />
         </div>
       </div>
@@ -24,7 +53,16 @@ const Register = () => {
           Mật khẩu
         </label>
         <div className={cx("input")}>
-          <input className={cx("input-data")} type="password" id="password" autoComplete="on" />
+          <input
+            className={cx("input-data")}
+            type="password"
+            id="password"
+            autoComplete="on"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
           <FontAwesomeIcon className={cx("input-icon")} icon={faLock} />
         </div>
       </div>
@@ -33,7 +71,16 @@ const Register = () => {
           Nhập lại mật khẩu
         </label>
         <div className={cx("input")}>
-          <input className={cx("input-data")} type="password" id="password-repeat" autoComplete="on" />
+          <input
+            className={cx("input-data")}
+            type="password"
+            id="password-repeat"
+            autoComplete="on"
+            value={rePassword}
+            onChange={(e) => {
+              setRePassword(e.target.value);
+            }}
+          />
           <FontAwesomeIcon className={cx("input-icon")} icon={faLock} />
         </div>
       </div>
@@ -42,7 +89,15 @@ const Register = () => {
           Tên hiển thị
         </label>
         <div className={cx("input")}>
-          <input className={cx("input-data")} type="text" id="email" />
+          <input
+            className={cx("input-data")}
+            type="text"
+            id="email"
+            value={nickname}
+            onChange={(e) => {
+              setNickname(e.target.value);
+            }}
+          />
           <FontAwesomeIcon className={cx("input-icon")} icon={faMessage} />
         </div>
       </div>
@@ -51,7 +106,15 @@ const Register = () => {
           Email
         </label>
         <div className={cx("input")}>
-          <input className={cx("input-data")} type="text" id="user-name" />
+          <input
+            className={cx("input-data")}
+            type="text"
+            id="user-name"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
           <FontAwesomeIcon className={cx("input-icon")} icon={faEnvelope} />
         </div>
       </div>
@@ -65,6 +128,9 @@ const Register = () => {
               className={cx("radio-gender") + " hide"}
               name="gender"
               value="made"
+              onChange={(e) => {
+                setGender(e.target.value);
+              }}
             />
             <label className={cx("label-checkbox")} htmlFor="radio-gender-made">
               Nam
@@ -77,6 +143,9 @@ const Register = () => {
               className={cx("radio-gender") + " hide"}
               name="gender"
               value="famade"
+              onChange={(e) => {
+                setGender(e.target.value);
+              }}
             />
             <label className={cx("label-checkbox")} htmlFor="radio-gender-famade">
               Nữ
@@ -99,7 +168,9 @@ const Register = () => {
           <input type="number" min="1" max="31" className={cx("input-number")} id="year" />
         </div>
       </div>
-      <button className={cx("btn-register", "btn")}>Đăng ký</button>
+      <button className={cx("btn-register", "btn")} onClick={handleRegister}>
+        Đăng ký
+      </button>
     </form>
   );
 };

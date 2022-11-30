@@ -1,3 +1,18 @@
+import { toast } from "react-toastify";
+import {
+  changePasswordError,
+  changePasswordStart,
+  changePasswordSuccess,
+  loginError,
+  loginStart,
+  loginSuccess,
+  registerError,
+  registerStart,
+  registerSuccess,
+  updateInfoUserError,
+  updateInfoUserStart,
+  updateInfoUserSuccess,
+} from "~/redux/reducers/authSlice";
 import { getMovieCurrentError, getMovieCurrentStart, getMovieCurrentSuccess } from "~/redux/reducers/movieCurrentSlice";
 import { getMoviesAnimeError, getMoviesAnimeStart, getMoviesAnimeSuccess } from "~/redux/reducers/moviesAnimeSlice";
 import {
@@ -180,5 +195,106 @@ export const getSearch = (dispatch, inputSearch) => {
     })
     .catch((error) => {
       dispatch(getSearchError(error));
+    });
+};
+
+export const getLogin = (dispatch, payload) => {
+  dispatch(loginStart());
+  // const apiURL = "https://ophim1.com/danh-sach/phim-moi-cap-nhat?page=1";
+  // fetch(apiURL)
+
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const { username, password } = payload;
+      // console.log(payload, username, password);
+      payload.pathAvatar =
+        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80";
+      payload.email = "admin@gmail.com";
+      payload.gender = "made";
+      payload.nickname = "Admin...";
+      payload.dataMovies = {
+        listMovieLike: [],
+        listMovieFollow: [],
+        listMovieWatched: [],
+      };
+      if (username === "admin" && password === "123") resolve(payload);
+      else reject("Tài khoản hoặc mật khẩu không chính xác!");
+    }, 2000);
+  })
+    .then((payload) => {
+      console.log("success", payload);
+      dispatch(loginSuccess(payload));
+      toast.success("Đăng nhập thành công!");
+    })
+    .catch((error) => {
+      console.log(error);
+      dispatch(loginError(error));
+    });
+};
+
+export const getRegister = (dispatch, payload) => {
+  dispatch(registerStart());
+  // const apiURL = "https://ophim1.com/danh-sach/phim-moi-cap-nhat?page=1";
+  // fetch(apiURL)
+  new Promise((resolve) => {
+    setTimeout(() => {
+      payload.pathAvatar =
+        "https://images.unsplash.com/photo-1609372332255-611485350f25?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80";
+      payload.dataMovies = {
+        listMovieLike: [],
+        listMovieFollow: [],
+        listMovieWatched: [],
+      };
+      resolve(payload);
+    }, 2000);
+  })
+    .then((payload) => {
+      console.log("success", payload);
+      dispatch(registerSuccess(payload));
+      toast.success("Đăng ký thành công!");
+    })
+    .catch((error) => {
+      console.log(error);
+      dispatch(registerError(error));
+    });
+};
+
+export const getUpdateInfoUser = (dispatch, payload) => {
+  dispatch(updateInfoUserStart());
+  // const apiURL = "https://ophim1.com/danh-sach/phim-moi-cap-nhat?page=1";
+  // fetch(apiURL)
+  new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(payload);
+    }, 2000);
+  })
+    .then((payload) => {
+      console.log("success", payload);
+      dispatch(updateInfoUserSuccess(payload));
+      toast.success("Cập nhập thông tin thành công!");
+    })
+    .catch((error) => {
+      console.log(error);
+      dispatch(updateInfoUserError(error));
+    });
+};
+
+export const getChangePassword = (dispatch, payload) => {
+  dispatch(changePasswordStart());
+  // const apiURL = "https://ophim1.com/danh-sach/phim-moi-cap-nhat?page=1";
+  // fetch(apiURL)
+  new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(payload);
+    }, 2000);
+  })
+    .then((payload) => {
+      console.log("success", payload);
+      dispatch(changePasswordSuccess(payload));
+      toast.success("Cập nhập mật khẩu thành công!");
+    })
+    .catch((error) => {
+      console.log(error);
+      dispatch(changePasswordError(error));
     });
 };

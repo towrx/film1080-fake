@@ -14,6 +14,8 @@ import { faClock, faComment } from "@fortawesome/free-regular-svg-icons";
 import * as apiRequest from "~/apiRequest";
 import MoviesItem from "~/components/MoviesItem";
 import Loading from "~/components/Loading";
+import { addMovieToListFollow, addMovieToListLike, addMovieToListWatched } from "~/redux/reducers/authSlice";
+import { toast } from "react-toastify";
 
 const cx = classNames.bind(styles);
 
@@ -29,7 +31,7 @@ const WatchMovie = () => {
   const movieCurrent = useSelector((state) => state.movieCurrent);
   const moviesRecommend = useSelector((state) => state.moviesRecommend);
   const moviesNominated = useSelector((state) => state.moviesNominated);
-
+  const user = useSelector((state) => state.auth.user);
   // call API
   useEffect(() => {
     apiRequest.getMovieCurrent(dispatch, name_film);
@@ -46,6 +48,7 @@ const WatchMovie = () => {
   useEffect(() => {
     if (movieCurrent.data) {
       setEpisodes(movieCurrent.data.episodes[0].server_data);
+      if (user) dispatch(addMovieToListWatched(movieCurrent.data));
     }
   }, [movieCurrent]);
 
@@ -107,11 +110,29 @@ const WatchMovie = () => {
               <div className={cx("wrap")}>
                 <span className={cx("info-header__views")}>Lượt xem: {(Math.random() * 20 + 1).toFixed(1)}k xem</span>
                 <div className={cx("info-header__action")}>
-                  <div className={cx("info-header__like")}>
+                  <div
+                    className={cx("info-header__like")}
+                    onClick={() => {
+                      if (!user) toast.info("Login để có thể sủ dụng!");
+                      else {
+                        dispatch(addMovieToListLike(movieCurrent.data));
+                        toast.info("Đã thêm vào danh sách thích!");
+                      }
+                    }}
+                  >
                     <FontAwesomeIcon icon={faHeart} />
                     29
                   </div>
-                  <div className={cx("info-header__notification")}>
+                  <div
+                    className={cx("info-header__notification")}
+                    onClick={() => {
+                      if (!user) toast.info("Login để có thể sủ dụng!");
+                      else {
+                        dispatch(addMovieToListFollow(movieCurrent.data));
+                        toast.info("Đã đăng ký theo dõi phim!");
+                      }
+                    }}
+                  >
                     <FontAwesomeIcon icon={faBell} />
                     25
                   </div>

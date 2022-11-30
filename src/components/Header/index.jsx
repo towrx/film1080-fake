@@ -10,10 +10,12 @@ import logo from "~/assets/images/logo.png";
 import Navbar from "~/components/Navbar";
 import SidebarMobile from "~/components/SidebarMobile";
 import SidebarUser from "~/components/SidebarUser";
+import { useSelector } from "react-redux";
 
 const cx = classNames.bind(styles);
 
 const Header = () => {
+  const auth = useSelector((state) => state.auth);
   return (
     <header className={cx("header")}>
       <div className={cx("header__content")}>
@@ -31,7 +33,7 @@ const Header = () => {
             <FontAwesomeIcon icon={faFacebookF} />
           </a>
           <label htmlFor="toggle-sidebar-user" className={cx("user")}>
-            <FontAwesomeIcon icon={faUser} />
+            {auth.user ? <img src={auth.user.pathAvatar} alt="" /> : <FontAwesomeIcon icon={faUser} />}
           </label>
           <input type="checkbox" className={cx("toggle-sidebar-user") + " hide"} id="toggle-sidebar-user" />
           <SidebarUser />

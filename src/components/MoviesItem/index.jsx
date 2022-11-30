@@ -112,6 +112,39 @@ const MoviesItem = ({ type, isItemHot, movie, pathImage }) => {
           </Link>
         </div>
       )}
+      {type === 3.3 && (
+        <div className={cx("item", "type03", { mb8: type === 3.2 })}>
+          <Link className={cx("item__link")} to={movie && "/watch/" + movie.slug}>
+            <div className={cx("item__thumb")}>
+              <img src={movie && movie.thumb_url} alt="" />
+            </div>
+            <span className={cx("item__audio")}>
+              {infoMovieFake.current.audio[Math.floor(Math.random() * infoMovieFake.current.audio.length)]}
+            </span>
+            <div className={cx("item__description")}>
+              <div className={cx("item__left")}>
+                <div className={cx("wrap")}>
+                  <span className={cx("item__quantity")}>
+                    {infoMovieFake.current.quantity[Math.floor(Math.random() * infoMovieFake.current.quantity.length)]}
+                  </span>
+                  <div className={cx("item__vote")}>
+                    <FontAwesomeIcon icon={faStar} className={cx("item__start-vote")} />
+                    <span className={cx("item__imdb")}>{(Math.random() * 10 + 1).toFixed(1) + "/" + 10}</span>
+                  </div>
+                </div>
+                <span className={cx("item__title-vie")}>{movie && movie.name}</span>
+
+                <span className={cx("item__category")}>
+                  <div className="item__view">{(Math.random() * 20 + 1).toFixed(1)}K xem</div>
+                  <div className="item__episode">
+                    {Math.floor(Math.random() * 14 + 1) + "/" + Math.floor(Math.random() * 16 + 12) + " "} tập
+                  </div>
+                </span>
+              </div>
+            </div>
+          </Link>
+        </div>
+      )}
       {type === 4 && (
         <Link to={movie && "/watch/" + movie.slug}>
           <li className={cx("related__item")}>
