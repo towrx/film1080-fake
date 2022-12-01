@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
-const MoviesTitle = ({ type, title, path, showTitleRight }) => {
+const MoviesTitle = ({ type, title, showTitleRight }) => {
   return (
     <>
       {type === 0 && (
@@ -19,7 +19,7 @@ const MoviesTitle = ({ type, title, path, showTitleRight }) => {
           </div>
           {showTitleRight && (
             <div className={cx("title__right")}>
-              <Link to={path} className={cx("title__link")}>
+              <Link to="/the-loai/phim-chieu-rap?page=1" className={cx("title__link")}>
                 Xem tất cả
               </Link>
               <FontAwesomeIcon icon={faFilm} className={cx("title__icon--right")} />

@@ -6,6 +6,7 @@ import Search from "~/pages/Search";
 import InfoUser from "~/pages/InfoUser";
 import ChangePassword from "~/pages/ChangePassword";
 import MoviesFavorite from "~/pages/MoviesFavorite";
+import PageNotFound from "~/pages/PageNotFound";
 
 // public routers
 const publicRouters = [
@@ -14,6 +15,7 @@ const publicRouters = [
   { path: "/tim-kiem/:searchParam", element: Search, layout: MainLayout },
   { path: "/watch/:name_film", element: WatchMovie, layout: MainLayout },
   { path: "/watch/:name_film/:episode", element: WatchMovie, layout: MainLayout },
+  { path: "*", element: PageNotFound, layout: MainLayout },
   // { path: "/", element: Home, layout: MainLayout },
 ];
 
